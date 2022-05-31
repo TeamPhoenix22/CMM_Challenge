@@ -1,2 +1,6 @@
 #data
 /cmm_erdos_2022
+feature_train.csv
+lower_model.sav
+mid_model.sav
+upper_model.sav
