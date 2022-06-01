@@ -1,0 +1,84 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+The pacman package allows us to import multiple libraries needed for this notebook.
+```{r}
+library(pacman)
+p_load(tidyverse, dplyr, cluster, Rtsne, ggplot2)
+```
+
+Import the claims data.
+```{r}
+claims <- read_csv("pharmacy_tx.csv")
+```
+
+Select the features you want to use the clustering algorithm on.
+```{r}
+claims_clean = claims %>% select(drug, bin, patient_pay, rejected)
+```
+
+Notice that 'patient_pay' is skewed and needs to undergo a log transform.
+```{r}
+hist(claims_clean$patient_pay)
+```
+
+
+The algorithm needs to take in only categorical factors, so we change the type of the features.
+```{r}
+claims_clean_Factors <- claims_clean %>% 
+  mutate(across(where(is.character), as.factor))
+```
+
+The 'rejected' feature is a logical that needs changed into a categorical as well.
+```{r}
+claims_clean_Factors$rejected=as.factor(claims_clean_Factors$rejected)
+```
+
+
+Now we start the clustering by using the "gower" metric. Since 'patient_pay' was the third variable and skewed as above, it undergoes a log transform (logratio=3).
+```{r}
+gower_df <- daisy(claims_clean_Factors[1:6000, ],
+                    metric = "gower" ,
+                    type = list(logratio = 3))
+```
+
+Here we start computing the optimal number of clusters using silhouette.
+```{r}
+silhouette <- c()
+silhouette = c(silhouette, NA)
+```
+
+```{r}
+for(i in 3:10){
+  pam_clusters = pam(as.matrix(gower_df),
+                 diss = TRUE,
+                 k = i)
+  silhouette = c(silhouette, pam_clusters$silinfo$avg.width)
+}
+```
+
+
+If you pass some values to 'silhouette' you'll notice that the largest value occurs at k=9 clusters (silhouette[9]=0.3329035)
+```{r}
+pam_claims = pam(gower_df, diss = TRUE, k = 9)
+```
+
+Now we'll graph the clusters with a tsne plot.
+```{r}
+tsne_object <- Rtsne(gower_df, is_distance = TRUE)
+```
+
+```{r}
+tsne_df <- tsne_object$Y %>%
+  data.frame() %>%
+  setNames(c("X", "Y")) %>%
+  mutate(cluster = factor(pam_claims$clustering))
+```
+
+```{r}
+ggplot(aes(x = X, y = Y), data = tsne_df) +
+  geom_point(aes(color = cluster))
+```
+
