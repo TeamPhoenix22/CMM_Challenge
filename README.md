@@ -12,7 +12,20 @@ The purpose of our project is to predict patients’ out-of-pocket pay and drugs
 This helps patients save money on prescriptions, and also helps doctors to make an informed decision about medication costs when prescribing medications. 
 
 ### The Dataset
+
 ### Our Approach
+
+The main phases of our project:
+
+ + **Data Exploration**: The data consists of around 14 million pharmacy data-billing claims simulated by CoverMyMeds. Researched insurance plans and explored factors impacting the variation of copayments with respect to the time of year, pharmacy and insurance plans.
+
+ + **Copay prediction**: Introduced new features by feature engineering and predicted copayments with an average 4% MAPE.
+
+ + **Formulary prediction**: Predicted formulary status of each medication on an insurance plan based on discount offered on each medication and rejection rates.
+
+ + **Medication clustering**: Clustered drugs based on similar rejection rates and copayment requirements on Type 1 and Type 2 insurance plans. Clustered drugs based on deductible and coinsurance for Type 3 insurance plans.
+
+
 
 ## Out-of-Pocket Payments
 ### Observations
