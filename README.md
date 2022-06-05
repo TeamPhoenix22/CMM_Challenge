@@ -126,7 +126,14 @@ Again note that (with the exception with tier 1) these tiers were determined by 
 For category 3 insurance plans it is more useful to cluster drugs into tiers using early-year copay and difference between early- and late-year copay
 (as opposed to copay & rejection rate). 
 ![](images/type3tiers.png)
+1) Low copays, large proportion of costs payed after deductible (coinsurance)
+2) Medium copays, medium proportion of costs payed after deductible (coinsurance)
+3) Higher copays, smaller proportion of costs payed after deductible (coinsurance)
+4) Highest copays, apparently no coinsurance
 
+The linear boundaries between these clusters were determined by SVM and further classification was done by analyzing rejection rate. 
+Although this method of clustering differs from the method used for Types 1 & 2 insurance plans, the following plot shows that this
+classification agrees with clustering by rejection rate. The only exception is between tiers 3 and 4, which rejection rate alone apparently do not distinguish. 
 ![](images/type3tiers-rej.png)
 
 ## Next Steps 
