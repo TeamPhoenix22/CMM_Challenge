@@ -13,6 +13,15 @@ This helps patients save money on prescriptions, and also helps doctors to make 
 
 ### The Dataset
 
+![](images/datahead.png)
+
+A glimpse of the data:
+ + 13.9 million entries
+ + 114 drugs
+ + 133 diagnosis codes
+ + 61 insurance plans
+ + 7.8% rejected claims
+
 ### Our Approach
 
 The main phases of our project:
