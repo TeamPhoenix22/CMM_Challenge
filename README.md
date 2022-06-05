@@ -5,7 +5,7 @@ CoverMyMeds challenge held at the Erdös Institute, May of 2022.
 * [patient_pay_summary](patient_pay_summary.ipynb) - summary on patient pay;
 * [formulary_status_summary](formulary_status_summary.ipynb) - summary on determining formulary status; 
 * [patient_pay_prediction](patient_pay_prediction.ipynb) - details on the patient_pay model;
-* [formulary_status](formulary_status.ipynb) - details on the formulary status;
+* [formulary_status](Formulary_status.ipynb) - details on the formulary status;
 * [similar_drugs_by_diagnosis](similar_drugs_by_diagnosis.ipynb) - TSNE plot visualization of drugs based on similar diagnosis codes;
 
 ## Overview
