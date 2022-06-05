@@ -2,10 +2,10 @@
 CoverMyMeds challenge held at the Erdös Institute, May of 2022.
 
 # Summary 
-* patient_pay_summary - summary on patient pay;
-* formulary_status_summary - summary on determining formulary status; 
-* patient_pay_prediction - details on the patient_pay model ;
-* formulary_status  - details on the formulary status;
+* [patient_pay_summary](patient_pay_summary.ipynb) - summary on patient pay;
+* [formulary_status_summary](formulary_status_summary.ipynb) - summary on determining formulary status; 
+* [patient_pay_prediction](patient_pay_prediction.ipynb) - details on the patient_pay model;
+* [formulary_status](formulary_status.ipynb) - details on the formulary status;
 
 ## Overview
 ### Problem Context
