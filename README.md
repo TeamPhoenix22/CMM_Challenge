@@ -1,6 +1,12 @@
 # CMM_Challenge
 CoverMyMeds challenge held at the Erdös Institute, May of 2022.
 
+# Summary 
+* patient_pay_summary - summary on patient pay;
+* formulary_status_summary - summary on determining formulary status; 
+* patient_pay_prediction - details on the patient_pay model ;
+* formulary_status  - details on the formulary status;
+
 ## Overview
 ### Problem Context
 
